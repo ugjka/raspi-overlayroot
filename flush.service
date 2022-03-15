@@ -4,7 +4,7 @@ Description=OVERLAY FLUSH TO DISK
 [Service]
 Type=oneshot
 ExecStop=/usr/bin/mount -o remount,rw /overlay/lower/
-ExecStop=/usr/bin/rsync --info=progress2 -axHAX --no-whole-file --inplace --delete / /overlay/lower/ --exclude dev --exclude proc --exclude run --exclude sys --exclude tmp --exclude overlay
+ExecStop=/usr/bin/rsync --info=name1,progress2 -axHAX --no-whole-file --inplace --delete / /overlay/lower/ --exclude dev --exclude proc --exclude run --exclude sys --exclude tmp --exclude overlay
 RemainAfterExit=yes
 TimeoutSec=infinity
 StandardOutput=journal+console
