@@ -8,7 +8,7 @@ if ! grep -qs 'overlayroot' /proc/cmdline; then
 fi
 
 sudo mount -o remount,rw /overlay/lower
-sudo mount --bind /boot /overlay/lower/boot/efi
+sudo mount --bind /boot/efi /overlay/lower/boot/efi
 sudo mount -o remount,rw /overlay/lower/boot/efi
 
 sudo arch-chroot /overlay/lower
