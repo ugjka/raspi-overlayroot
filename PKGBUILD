@@ -1,9 +1,9 @@
 pkgname=overlayroot
-pkgver=0.2
+pkgver=0.3
 pkgrel=2
 pkgdesc="overlayFS root file system"
 arch=('any')
-url="https://github.com/nils-werner/arch-overlayroot"
+url="https://github.com/ugjka/arch-overlayroot"
 license=('MIT')
 depends=(
   'mkinitcpio'
@@ -18,8 +18,10 @@ source=(
   'fsck.overlay'
   'journald-volatile-storage.conf'
   'overlayroot-motd.sh'
+  'flush.service'
 )
 sha256sums=(
+  'SKIP'
   'SKIP'
   'SKIP'
   'SKIP'
@@ -40,4 +42,5 @@ package() {
   install -Dm755 "$srcdir/rwrootfs" "$pkgdir/usr/bin/rwrootfs"
   install -Dm755 "$srcdir/fsck.overlay" "$pkgdir/usr/bin/fsck.overlay"
   install -Dm644 "$srcdir/overlayroot-motd.sh" "$pkgdir/etc/profile.d/overlayroot-motd.sh"
+  install -Dm644 "$srcdir/flush.service" "$pkgdir/usr/lib/systemd/system/flush.service"
 }

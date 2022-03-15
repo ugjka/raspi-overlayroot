@@ -4,7 +4,7 @@ run_hook() {
   if [ "${overlayroot}" ]; then
     # Create overlay tree in RAM
     mkdir -p /overlay
-    mount -t tmpfs overlayroot /overlay
+    mount -t tmpfs -o size=100% overlayroot /overlay
     mkdir -p /overlay/upper
     mkdir -p /overlay/work
     mkdir -p /overlay/lower
