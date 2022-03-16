@@ -1,5 +1,5 @@
 pkgname=overlayroot
-pkgver=0.6
+pkgver=0.7
 pkgrel=1
 pkgdesc="overlayFS root file system"
 arch=('any')
@@ -19,8 +19,10 @@ source=(
   'journald-volatile-storage.conf'
   'overlayroot-motd.sh'
   'flush.service'
+  'flush_overlay'
 )
 sha256sums=(
+  'SKIP'
   'SKIP'
   'SKIP'
   'SKIP'
@@ -43,4 +45,5 @@ package() {
   install -Dm755 "$srcdir/fsck.overlay" "$pkgdir/usr/bin/fsck.overlay"
   install -Dm644 "$srcdir/overlayroot-motd.sh" "$pkgdir/etc/profile.d/overlayroot-motd.sh"
   install -Dm644 "$srcdir/flush.service" "$pkgdir/usr/lib/systemd/system/flush.service"
+  install -Dm644 "$srcdir/flush_overlay" "$pkgdir/usr/bin/flush_overlay"
 }

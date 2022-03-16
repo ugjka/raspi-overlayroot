@@ -1,0 +1,10 @@
+#!/bin/sh
+
+if [ ! -d /overlay/lower ] || ! grep -qs 'overlayroot' /proc/cmdline
+then
+    echo "Error: not running from overlayroot!"
+    exit 1
+fi
+
+mount -o remount,rw /overlay/lower/
+rsync --info=name1,progress2 -axHAX --no-whole-file --inplace --delete / /overlay/lower/ --exclude dev --exclude proc --exclude run --exclude sys --exclude tmp --exclude overlay
