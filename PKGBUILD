@@ -1,4 +1,4 @@
-pkgname=overlayroot
+pkgname=overlayroot-ugjka
 pkgver=0.8
 pkgrel=1
 pkgdesc="overlayFS root file system"
